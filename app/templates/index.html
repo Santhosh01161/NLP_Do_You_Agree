@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SBERT NLI Predictor</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; max-width: 800px; margin: 0 auto; padding: 40px; }
+        .card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; }
+        .metrics { background: #eef2f3; padding: 15px; border-radius: 8px; margin-bottom: 25px; font-size: 0.9em; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; font-size: 11px; overflow-x: auto; }
+        .input-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; }
+        input[type="text"] { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #3498db; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; }
+        .result-box { margin-top: 30px; padding: 20px; border-radius: 10px; text-align: center; background: #d5f5e3; border: 1px solid #2ecc71; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Natural Language Inference</h1>
+
+    {% if stats %}
+    <div class="metrics">
+        <strong>Task 3 Accuracy:</strong> {{ (stats.accuracy * 100)|round(1) }}%
+        <details>
+            <summary style="cursor: pointer; color: #3498db;">View Classification Report</summary>
+            <pre>{{ stats.classification_report }}</pre>
+        </details>
+    </div>
+    {% endif %}
+
+    <form method="POST">
+        <div class="input-group">
+            <label>Premise Sentence</label>
+            <input type="text" name="premise" value="{{ premise }}" required placeholder="A man is playing guitar.">
+        </div>
+        <div class="input-group">
+            <label>Hypothesis Sentence</label>
+            <input type="text" name="hypothesis" value="{{ hypothesis }}" required placeholder="Someone is making music.">
+        </div>
+        <button type="submit">Analyse Sentences</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">
+        <h2>Prediction: {{ result.label }}</h2>
+        <p>Confidence: <strong>{{ result.confidence }}</strong></p>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>

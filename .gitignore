@@ -1,0 +1,16 @@
+# --- Python Environment ---
+venv/
+env/
+__pycache__/
+.ipynb_checkpoints/
+
+# --- Large Model Files (Do not push to GitHub) ---
+*.bin
+*.pth
+model_checkpoints/
+sentence_bert.py
+
+
+# --- Configuration & Logs ---
+*.log
+.DS_Store
