@@ -1,8 +1,8 @@
 # 🤖 NLP: Do You Agree? (Sentence-BERT & NLI) 🚀
 
 Welcome to the **NLP_Do_You_Agree** repository! This project demonstrates the end-to-end process of building a **BERT** model from scratch, fine-tuning it into a Siamese **Sentence-BERT (SBERT)** architecture for Natural Language Inference (NLI), and deploying it as a professional web application.
-<img width="875" height="784" alt="Screenshot 2026-02-15 at 1 05 41 am" src="https://github.com/user-attachments/assets/12f3a95c-fb96-486e-aa00-da462b52f74a" />
 
+<img width="875" height="784" alt="Screenshot 2026-02-15 at 1 05 41 am" src="https://github.com/user-attachments/assets/12f3a95c-fb96-486e-aa00-da462b52f74a" />
 
 ---
 
